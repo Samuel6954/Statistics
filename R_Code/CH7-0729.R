@@ -51,6 +51,9 @@ member[member$GENDER == "Male", ]
 
 #新增
 member[,4] = ""
+member[,4] = c("Teacher", "Teacher", "Student", "Student")
+names(member)[4] = "Occupation"
+
 member
 
 #刪除
@@ -61,6 +64,7 @@ member
 
 #刪除欄位
 member[, 1:3] = NULL
+member = data.frame(name, age, gender)
 member
 
 #刪除資料列
@@ -70,10 +74,15 @@ member
 #資料讀取
 #1.檔案讀取
 #(1)	不修改R Studio的位置設定
+read.csv("C:/Users/DELL/OneDrive/桌面/202307_R語言課程/Statistics/Statistics/R_Code/上課檔案/0729/Boston.csv")
 
 #(2)	更改R Studio的位置設定
+#setwd("C:/Users/DELL/OneDrive/桌面/202307_R語言課程/Statistics/Statistics/R_Code/上課檔案/0729")
+
+myFile = read.csv("Boston.csv")
 
 #(3)	直接讀取資料
+#Environment/Import Dataset/From Excel
 
 #2.	讀取資料相關函數
 
