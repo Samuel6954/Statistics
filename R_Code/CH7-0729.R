@@ -85,14 +85,33 @@ myFile = read.csv("Boston.csv")
 #Environment/Import Dataset/From Excel
 
 #2.	讀取資料相關函數
+myFileByReadTb = read.table("Boston.csv", header = TRUE, sep = ",")
+myFileByReadCSV = read.csv("Boston.csv")
 
 #fread()：與read.table()相似並且更快速方便，可以自動判別sep、nrows等參數
 
+#安裝
+install.packages("data.table")
+library(data.table)
+
+myFileByfread = fread("Boston.csv")
+
 #scan()：從控制台（console）讀取資料並轉為向量（vector）或列表（list）型態
 
+#數值
+myScanData = scan()
+
+#字串
+myScanStrData = scan(what = "")
+myScanStrData
+
+#矩陣
+myScanMatrixData = matrix(scan(), nrow = 2, ncol = 2)
+myScanMatrixData
 
 #3. 檔案輸出
-
+write.table(member, file = "member.txt")
+write.csv(member, file = "member.csv")
 
 #資料操弄
 #merge()
@@ -126,12 +145,15 @@ unique(MyMergeData$Gender)
 
 #練習:
 #1. 請匯入practice.xlsx並呈現在視窗中。
-
+library(readxl)
+practice <- read_excel("practice.xlsx")
+View(practice)
 
 #2.	請將Years to Maturity重新命名為Years。
-
+names(practice)[2] = "Years"
 
 #3.	請找出Company Ticker的所有種類。
+unique(practice$`Company Ticker`)
 
 #4.	計算每種Company Ticker的Yield之平均。
-
+aggregate(practice$Yield ~ practice$`Company Ticker`, data = practice, FUN = "mean")
