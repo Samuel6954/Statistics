@@ -1,25 +1,27 @@
 # CH 8 dyplr基本操作
-# 對dyplr進行安裝並載入
-
+# 對dyplyr進行安裝並載入
+install.packages("dplyr")
+library(dplyr)
 
 #強化版的str，能更清楚看資料結構
-
+glimpse(practice)
 
 #select( ) : 選取欄位(以行的方向選擇，進行欄位選取)
+select(practice, Yield, `Company Ticker`)
 
 #mutate( ) : 定義新欄位(可利用既有欄位進行運算創在新欄位)
-
+mutate(practice, total = Yield * `Years to Maturity`)
 
 #filter( ) : 利用條件進行篩選選取欄位(以列的方向篩選)
 #可在 filter 後加上所要篩選的條件
-
+filter(practice, `Company Ticker` == "GS")
 
 #count( ) : 分類計算數量或加總
 #1. 直接給予資料框，即可計算資料框的總資料筆數
-
+count(practice)
 
 #2.可在輸入的資料框後面加入所想要的屬性，便可以知道該屬性的資料筆數
-
+count(practice, Yield)
 
 #summarise( ) : 計算統計值，進行資料彙總
 
