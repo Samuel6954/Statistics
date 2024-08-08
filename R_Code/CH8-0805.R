@@ -4,6 +4,7 @@ install.packages("dplyr")
 library(dplyr)
 
 #強化版的str，能更清楚看資料結構
+str(practice)
 glimpse(practice)
 
 #select( ) : 選取欄位(以行的方向選擇，進行欄位選取)
@@ -24,18 +25,28 @@ count(practice)
 count(practice, Yield)
 
 #summarise( ) : 計算統計值，進行資料彙總
+summarise(practice, nc = n(), nNC = n_distinct(`Company Ticker`))
+summarise(practice, total_count = n(), unique_ticker_count = n_distinct(`Company Ticker`))
 
+#magritter 套件
+install.packages("magrittr")
+library(magrittr)
 
 #%>% : Forward pipe 工作流指令，用來建立資料的工作流，將欲輸入的值放入運算子左邊，把欲丟入的函數放右邊
+myMagrittrResult = sqrt(sum(1:10))
+myMagrittrResult2 = 1:10 %>% sum() %>% sqrt()
 
 #group_by( ) : 根據資料框資料進行分群(可以搭配%>%使用)
-
+group_by(practice, `Company Ticker`) %>% summarise(np = n())
 
 #arrange( ) : 重新排列資料(升冪排列)
+arrange(practice, Yield)
 
 #desc( ) : 降冪排列
+arrange(practice, desc(Yield))
 
 #rename( ) : 將欄位進行改名
+rename(practice, YIELD = Yield)
 
 
 #作業
