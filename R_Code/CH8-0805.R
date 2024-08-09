@@ -53,14 +53,20 @@ rename(practice, YIELD = Yield)
 #1.	請將hw8的excel檔載入
 
 #2.	計算資料筆數
+count(hw8)
 
 #3.	試問不同的城市的人數並將CITY欄位改成小寫city
+rename(hw8, city = CITY)
 
 #4.	請選出年紀(AGE)最小的六個人的資料以及年紀最大的六個人的資料
     #(提示:可合併運用arrange和head功能或是使用%>%工作流)
-
+head(arrange(hw8, AGE, n = 6))
+head(arrange(hw8, desc(AGE), n = 6))
 
 #5.	新增一個新欄位TOTAL，其計算方式為SALARY*WORK YEARS，並列出TOTAL最高的5人
+myAddTotal = mutate(hw8, TOTAL = SALARY * `WORK YEAR`)
+head(arrange(myAddTotal, desc(TOTAL), n = 5))
+
 
 #6.	請將這些人以所在地區(AREA)來進行分群
-
+group_by(hw8, AREA) %>% summarise(np = n())
