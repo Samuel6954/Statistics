@@ -324,9 +324,9 @@ unique() #在重複性資料中提取每項類別
 4. 計算每種Company Ticker的Yield之平均。
 
 
-# CH8-0805 dyplr基本操作
+# CH8-0805 dplyr基本操作
 
-#對dyplr進行安裝並載入
+#對dplyr進行安裝並載入
 
 - 強化版的str，能更清楚看資料結構
 
