@@ -45,7 +45,7 @@ ggplot(hw8, aes(x = AGE, color = AREA)) + geom_boxplot() + theme_bw()
 #作業
 # 1. 請載入表格 hw9
 library(readxl)
-hw9 <- read_excel("C:/Users/samue/OneDrive/桌面/GitHub/Statistics/R_Code/上課檔案/0809/hw9.xlsx")
+hw9 <- read_excel("上課檔案/0809/hw9.xlsx")
 View(hw9)
 
 # 2. 請利用 ggplot描繪出一散佈圖描繪出一散佈圖 (point)，其中 x軸為年紀 (AGE)，
@@ -55,13 +55,13 @@ View(hw9)
 install.packages("ggplot2")
 library(ggplot2)
 
-ggplot(hw9, aes(x = AGE, y = SALARY, color = TEAM)) + geom_point(size = 2, shape = 20) + theme_bw()
+myPointPic = ggplot(hw9, aes(x = AGE, y = SALARY, color = TEAM)) + geom_point(size = 2, shape = 20) + theme_bw()
 
 # 3. 利用 ggplot描繪出一直方圖(histogram)來顯示此表格中年齡的分布 (AGE)
 install.packages("ggplot2")
 library(ggplot2)
 
-ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_histogram(bins = 20) + theme_bw()
+myHistogramPic = ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_histogram(bins = 20) + theme_bw()
 
 # 4. 利用 ggplot描繪出一長條圖(bar chart)來顯示此表格中隊伍的分布 (TEAM)
 
@@ -69,20 +69,20 @@ ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_histogram(bins = 20) + theme_bw()
 install.packages("ggplot2")
 library(ggplot2)
 
-ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_bar() + theme_bw()
+myBarChartPic = ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_bar() + theme_bw()
 
 # 5. 利用ggplot結合 dplyr套件的功能 (group_by、summarise、%>%)描繪出一條狀圖 (column)，
 #   來顯示此表格中不同性別 (GENDER)，也就是男性 (M)和女性 和女性 (F)的平均薪資 (mean(SALARY))
 install.packages("dplyr")
 library(dplyr)
 
-install.packages("ggplot2")
+#install.packages("ggplot2")
 library(ggplot2)
 
 install.packages("magrittr")
 library(magrittr)
 
-group_by(hw9, GENDER) %>% summarise(salary.ratio = mean(SALARY)) %>% 
+myColumnlPic = group_by(hw9, GENDER) %>% summarise(salary.ratio = mean(SALARY)) %>% 
   ggplot(aes(x = GENDER, y = salary.ratio)) + geom_col() + theme_bw()
 
 # 6. 利用 ggplot描繪出一盒狀圖(boxplot)，表示「不同隊伍 (TEAM)」的年齡 (AGE)分布，
@@ -90,10 +90,42 @@ group_by(hw9, GENDER) %>% summarise(salary.ratio = mean(SALARY)) %>%
 install.packages("dplyr")
 library(dplyr)
 
-ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_boxplot() + theme_bw()
+#install.packages("ggplot2")
+library(ggplot2)
+
+myBoxplot = ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_boxplot() + theme_bw()
 
 
 # 7.將 2~6題所要求的圖形用 grid.arrange( )一次展示出
+install.packages("gridExtra")
+library(gridExtra)
+
+#install.packages("ggplot2")
+library(ggplot2)
+
+grid.arrange(myPointPic, myHistogramPic, myBarChartPic, myColumnlPic, myBoxplot, nrow = 3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
