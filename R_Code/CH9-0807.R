@@ -45,7 +45,7 @@ ggplot(hw8, aes(x = AGE, color = AREA)) + geom_boxplot() + theme_bw()
 #作業
 # 1. 請載入表格 hw9
 library(readxl)
-hw9 <- read_excel("C:/Users/DELL/OneDrive/桌面/202307_R語言課程/Statistics/Statistics/R_Code/上課檔案/0809/hw9.xlsx")
+hw9 <- read_excel("C:/Users/samue/OneDrive/桌面/GitHub/Statistics/R_Code/上課檔案/0809/hw9.xlsx")
 View(hw9)
 
 # 2. 請利用 ggplot描繪出一散佈圖描繪出一散佈圖 (point)，其中 x軸為年紀 (AGE)，
@@ -73,13 +73,17 @@ ggplot(hw9, aes(x = AGE, color = TEAM)) + geom_bar() + theme_bw()
 
 # 5. 利用ggplot結合 dplyr套件的功能 (group_by、summarise、%>%)描繪出一條狀圖 (column)，
 #   來顯示此表格中不同性別 (GENDER)，也就是男性 (M)和女性 和女性 (F)的平均薪資 (mean(SALARY))
+install.packages("dplyr")
+library(dplyr)
+
 install.packages("ggplot2")
 library(ggplot2)
 
 install.packages("magrittr")
 library(magrittr)
 
-group_by(hw9, GENDER) %>% summarise(salary.ratio = mean(SALARY)) %>% ggplot(aes(x = AGE, y = salary.ratio)) + geom_col()
+group_by(hw9, GENDER) %>% summarise(salary.ratio = mean(SALARY)) %>% 
+  ggplot(aes(x = GENDER, y = salary.ratio)) + geom_col() + theme_bw()
 
 # 6. 利用 ggplot描繪出一盒狀圖(boxplot)，表示「不同隊伍 (TEAM)」的年齡 (AGE)分布，
 #   並以不同顏色區別隊伍 (TEAM)
