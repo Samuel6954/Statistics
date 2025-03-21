@@ -1,71 +1,72 @@
 # 向量（Vector）
 #請建立一個數字向量 vec，其內容為 1 到 5。
-myVector = c(1, 2, 3, 4,5)
+vec = c(1, 2, 3, 4,5)
 
 #從向量 vec 中取出第二個元素。
-myVector[2]
+vec[2]
 
 #在向量 vec 的末尾新增數字 6。
-#myVector[6] = 6
-myVector = c(myVector, 6)
-myVector[length(myVector) + 1] = 6
+#vec[6] = 6
+vec = c(myVector, 6)
+vec[length(myVector) + 1] = 6
 
 #將向量 vec 中的每個元素加 1。
-#myVector2 = c(1, 1, 1, 1, 1)
-#myVector = myVector + myVector2
+#vec2 = c(1, 1, 1, 1, 1)
+#vec = vec + vec2
 
-myVector = myVector + 1
+vec = vec + 1
 
-for (i in myVector){
-  myVector[i] = myVector[i] + 1
+for (i in vec){
+  vec[i] = vec[i] + 1
 }
 
 #計算向量 vec 中所有元素的總和。
-SUM(myVector)
+SUM(vec)
 
 # 因子（Factor）
 # 請建立一個因子 factor_var，其內容為 Male, Female, Female, Male。
-myFactor1 = factor(c("Male", "Female", "Female", "Male"))
-myFactor1
+factor_var = factor(c("Male", "Female", "Female", "Male"))
+factor_var
 
 # 從因子 factor_var 中取出第二個元素。
-myFactor1[2]
+factor_var[2]
 
 # 檢查因子 factor_var 的類別（levels）。
-levels(myFactor1)
+levels(factor_var)
 
 # 列表（List）
 # 請建立一個列表 lst，其中包含 name = "John"，age = 25，以及 scores = c(90, 85, 88)。
-myList1 = list(name = "John", age = 25, scores = c(90, 85, 88))
+lst = list(name = "John", age = 25, scores = c(90, 85, 88))
 
 #	使用名稱索引取出列表 lst 中的 name。
-myList1$name
+lst$name
 
 #	使用位置索引取出列表 lst 中的第一個元素。
-myList1[1]
+lst[1]
 
 #	向列表 lst 中新增一個元素 gender = "Male"。
-myList1$gender = "Male"
+lst$gender = "Male"
 
 # 矩陣（Matrix）
 #	請建立一個 2 行 3 列的矩陣 matrix_data，其內容為 1 到 6。
-myMatrix = matrix(data = 1:6, nrow = 2)
+matrix_data = matrix(data = 1:6, nrow = 2)
 
 #	取出矩陣 matrix_data 中第一行第二列的元素。
-myMatrix[1,2]
+matrix_data[1,2]
 
 #	在矩陣 matrix_data 中新增一行，內容為 7, 8, 9。
-myMatrix = rbind(myMatrix, c(7, 8, 9))
+matrix_data = rbind(myMatrix, c(7, 8, 9))
 
 #	在矩陣 matrix_data 中新增一列，內容為 10, 11。
-myMatrix = cbind(myMatrix, c(10, 11, 12))
+matrix_data = cbind(myMatrix, c(10, 11, 12))
 
 
 # 陣列（Array）
 #	請建立一個 2x3x2 的陣列 array_data，其內容為 1 到 12。
+array_data = array(1:12, dim = c(2,2,3))
 
 #	取出陣列 array_data 中第一層第二行第二列的元素。
-
+array_data[2,2,1]
 
 # Data Frame
 #	請建立一個 Data Frame df，其中包含 Name 為"John", "Mary"，Age為25, 30，Gender 為"Male", "Female"
